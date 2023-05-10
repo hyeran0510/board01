@@ -1,7 +1,7 @@
 package com.study.board01.controller;
 
 import com.study.board01.Service.BoradService;
-import com.study.board01.controller.entity.Board01;
+import com.study.board01.controller.entity.Board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +19,9 @@ public class BoardController {
      }
 
      @PostMapping("/board/write")
-    public String boardWriteForm(Board01 board01) {
+    public String boardWriteForm(Board board) {
 
-         boradService.write(board01);
+         boradService.write(board);
 
          return "";
      }
