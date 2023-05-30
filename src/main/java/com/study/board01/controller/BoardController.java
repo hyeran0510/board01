@@ -23,9 +23,15 @@ public class BoardController {
     }
 
     @PostMapping("/board/writePro")
-    public String boardWriteForm(Board board) {
+    public String boardWritePro(Board board, Model model) {
+
         boradService.write(board);
-        return "";
+
+        model.addAttribute("message","글 작성 완료");
+        model.addAttribute("searchUrl","글 작성 완료");
+
+        return "message";
+
     }
 
     @GetMapping("/board/list")
@@ -67,7 +73,7 @@ public class BoardController {
             boardTemp.setTitle(board.getTitle()); //덮어씌움
             boardTemp.setContent(board.getContent());
 
-            boradService.write(boardTemp);
+            boradService.write(boardTemp);  //업데이트
 
             return "redirect:/board/list";
         }
