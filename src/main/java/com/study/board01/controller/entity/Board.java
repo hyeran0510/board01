@@ -7,9 +7,11 @@ import jakarta.persistence.Id;
 import lombok.Data;
 
 @Data
-@Entity
+@Entity //디비에 있는 테이블
+
+
 public class Board {
-    @Id
+    @Id //프라이머리 키
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>리스트 페이지</title>
+</head>
+
+<style>
+
+     .layout {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 100px;
+            }
+
+</style>
+
+<body>
+    <div class="layout">
+
+      <table>
+        <thead>
+          <tr>
+            <th>글번호 -</th>
+            <th>제목</th>
+          </tr>
+        </thead>
+
+          <tbody>
+              <tr th:each = "board : ${list}">  <!--each 반복문 리스트에 있느 보드가 사라질때까지 -->
+                <td th:text="${board.id}">1.</td>                                   <!--localhost:8080/board/view?id=board.id-->
+                <td>
+                    <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}">
+                    </a>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+
+</body>
+</html>
